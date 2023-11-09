@@ -31,7 +31,7 @@ public class RollCommand implements CommandExecutor {
         }
 
         Random rand = new Random();
-        int result = rand.nextInt(dice);
+        int result = rand.nextInt(dice) + 1;
         Component result_text = Component.text(player.getName()).color(TextColor.color(255, 255, 255))
                 .append(Component.text(" бросает D").color(TextColor.color(255, 255, 255)))
                 .append(Component.text(dice).color(TextColor.color(255, 255, 255)))
