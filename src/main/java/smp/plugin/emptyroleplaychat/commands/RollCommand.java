@@ -38,6 +38,12 @@ public class RollCommand implements CommandExecutor {
         }
 
         Random rand = new Random();
+        if (dice <= 0) {
+            player.sendMessage(Component.text("#число должно быть больше 0#")
+                    .color(TextColor.color(164, 164, 164))
+                    .decorate(TextDecoration.ITALIC));
+            return false;
+        }
         int result = rand.nextInt(dice) + 1;
         Component result_text = Component.text(player.getName()).color(TextColor.color(255, 255, 255))
                 .append(Component.text(" бросает D").color(TextColor.color(255, 255, 255)))
