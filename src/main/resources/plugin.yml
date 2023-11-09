@@ -1,0 +1,17 @@
+name: EmptyRoleplayChat
+version: '1.0'
+main: smp.plugin.emptyroleplaychat.EmptyRoleplayChat
+api-version: '1.20'
+commands:
+  me:
+    description: "Command to express your emotions or actions in a text form for players nearby."
+    usage: "/me"
+    aliases: me
+  try:
+    description: "Command to try making an action and showing the result for players nearby."
+    usage: "/try"
+    aliases: try
+  roll:
+    description: "Command to roll a dice of chosen size and show the result for players nearby."
+    usage: "/roll [dice size]"
+    aliases: roll
