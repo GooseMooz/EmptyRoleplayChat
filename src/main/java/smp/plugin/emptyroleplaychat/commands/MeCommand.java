@@ -3,7 +3,6 @@ package smp.plugin.emptyroleplaychat.commands;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,10 +40,20 @@ public class MeCommand implements CommandExecutor {
 
         List<Entity> nearbyPlayers = player.getNearbyEntities(100, 100, 100);
 
+        int counter = 0;
         for (Entity entity : nearbyPlayers) {
             if (entity instanceof Player nearbyPlayer) {
+                counter += 1;
                 nearbyPlayer.sendMessage(final_message);
             }
+        }
+
+        if (counter == 0) {
+            player.sendMessage(final_message);
+            player.sendMessage(Component.text("'вас никто не услышал'")
+                    .color(TextColor.color(164, 164, 164))
+                    .decorate(TextDecoration.ITALIC));
+            return true;
         }
 
         player.sendMessage(final_message);

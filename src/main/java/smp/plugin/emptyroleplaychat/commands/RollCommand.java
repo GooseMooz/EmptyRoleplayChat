@@ -25,7 +25,14 @@ public class RollCommand implements CommandExecutor {
         if (args.length == 0) {
             dice = 6;
         } else if (args.length == 1) {
-            dice = Integer.parseInt(args[0]);
+            try {
+                dice = Integer.parseInt(args[0]);
+            } catch (NumberFormatException err) {
+                player.sendMessage(Component.text("#слишком большое число#")
+                        .color(TextColor.color(164, 164, 164))
+                        .decorate(TextDecoration.ITALIC));
+                return false;
+            }
         } else {
             return false;
         }
